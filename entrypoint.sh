@@ -14,9 +14,17 @@ then
   set -- $args
 fi
 
-if [[ ${1:0:1} == - ]] || [[ $1 == qemu ]]
+if   [[ $1 == ovmf ]]
+then
+  set -- $WORKSPACE/OvmfPkg/build.sh ${@:2}
+  echo $@ && exec $@
+elif [[ $1 == qemu ]]
 then
   set -- $WORKSPACE/OvmfPkg/build.sh ${@:1}
+  echo $@ && exec $@
+elif [[ $1 == shell ]]
+then
+  set -- build -p ShellPkg/ShellPkg.dsc ${@:2}
   echo $@ && exec $@
 else
   bash
