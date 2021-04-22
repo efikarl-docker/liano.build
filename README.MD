@@ -55,6 +55,6 @@ When building is done, you will find `Shell.efi` in `Build\**\ShellPkg\Applicati
 git clone https://github.com/efikarl/liano.git && cd liano
 
 # Just to use this build environment
-docker run --rm --it -v ${PWD}:/ws efikarl/liano.build
+docker run --rm -it -v ${PWD}:/ws efikarl/liano.build
 ```
 
